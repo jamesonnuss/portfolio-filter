@@ -38,7 +38,7 @@ function custom_post_gallery() {
     	'query_var' 		 => true,   
     	'rewrite' 			 => true,  
 		'supports'      	 => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
-		'has_archive'   	 => true,
+		'has_archive'   	 => true
 	);
 	register_post_type( 'project', $args );	
 }
