@@ -12,7 +12,7 @@ License: GPLV2
 
 add_action('init', 'jcn_project_custom_init');      
       
-/* project_custom_init */  
+/* START jcn_project_custom_init */  
 function jcn_project_custom_init()  
 {  
    $labels = array(
@@ -62,7 +62,7 @@ function jcn_project_custom_init()
 	    'new_item_name' => __( 'New Tag Name' ),  
 	);  
       
-	// Registering Custom Taxonomy  
+	// Registering A Custom Taxonomy  
 	register_taxonomy('tagportfolio',array('project'), array(  
 	    'hierarchical' => true, // define whether to use a system like tags or categories  
 	    'labels' => $labels,  
@@ -71,5 +71,32 @@ function jcn_project_custom_init()
 	    'rewrite' => array( 'slug' => 'tag-portfolio' ),  
 	));  
 
-}  /* End jcn_project_custom_init --*/  
+}  /* END jcn_project_custom_init --*/  
 
+/* Creating a custom message for jcn_project_updated_messages */  
+add_filter('post_updated_messages', 'jcn_project_updated_messages');  
+  
+function jcn_project_updated_messages( $messages ) {  
+  global $post, $post_ID;  
+  /* I recieved this code from http://wp.tutsplus.com/ */
+  $messages['project'] = array(  
+    0 => '', // Unused. Messages start at index 1.  
+    1 => sprintf( __('Project updated. <a href="%s">View project</a>'), esc_url( get_permalink($post_ID) ) ),  
+    2 => __('Custom field updated.'),  
+    3 => __('Custom field deleted.'),  
+    4 => __('Project updated.'),  
+    /* translators: %s: date and time of the revision */  
+    5 => isset($_GET['revision']) ? sprintf( __('Project restored to revision from %s'), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,  
+    6 => sprintf( __('Project published. <a href="%s">View project</a>'), esc_url( get_permalink($post_ID) ) ),  
+    7 => __('Project saved.'),  
+    8 => sprintf( __('Project submitted. <a target="_blank" href="%s">Preview project</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),  
+    9 => sprintf( __('Project scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview project</a>'),  
+      // translators: Publish box date format, see http://php.net/date  
+      date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),  
+    10 => sprintf( __('Project draft updated. <a target="_blank" href="%s">Preview project</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),  
+  );  
+  
+  return $messages;  
+}  
+  
+/* END jcn_project_updated_messages */  
