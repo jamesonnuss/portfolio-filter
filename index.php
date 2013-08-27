@@ -47,5 +47,29 @@ function jcn_project_custom_init()
 	);
 	register_post_type( 'project', $args );	
 
+
+	// Initializing Taxonomy Labels  
+	$labels = array(  
+	    'name' => _x( 'Tags', 'taxonomy general name' ),  
+	    'singular_name' => _x( 'Tag', 'taxonomy singular name' ),  
+	    'search_items' =>  __( 'Search Types' ),  
+	    'all_items' => __( 'All Tags' ),  
+	    'parent_item' => __( 'Parent Tag' ),  
+	    'parent_item_colon' => __( 'Parent Tag:' ),  
+	    'edit_item' => __( 'Edit Tags' ),  
+	    'update_item' => __( 'Update Tag' ),  
+	    'add_new_item' => __( 'Add New Tag' ),  
+	    'new_item_name' => __( 'New Tag Name' ),  
+	);  
+      
+	// Registering Custom Taxonomy  
+	register_taxonomy('tagportfolio',array('project'), array(  
+	    'hierarchical' => true, // define whether to use a system like tags or categories  
+	    'labels' => $labels,  
+	    'show_ui' => true,  
+	    'query_var' => true,  
+	    'rewrite' => array( 'slug' => 'tag-portfolio' ),  
+	));  
+
 }  /* End jcn_project_custom_init --*/  
 
