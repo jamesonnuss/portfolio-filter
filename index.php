@@ -9,10 +9,15 @@ Author URI: http://www.jamesonnuss.com
 License: GPLV2
 */
 
-function custom_post_gallery() {
-	$labels = array(
+
+add_action('init', 'jcn_project_custom_init');      
+      
+/* project_custom_init */  
+function jcn_project_custom_init()  
+{  
+   $labels = array(
 		'name'               => _x( 'Portfolio Filter', 'post type general name' ),
-		'singular_name'      => _x( 'project', 'post type singular name' ),
+		'singular_name'      => _x( 'Project', 'post type singular name' ),
 		'add_new'            => _x( 'Add New', 'project' ),
 		'add_new_item'       => __( 'Add New Project' ),
 		'edit_item'          => __( 'Edit Project' ),
@@ -41,5 +46,6 @@ function custom_post_gallery() {
 		'has_archive'   	 => true
 	);
 	register_post_type( 'project', $args );	
-}
-add_action( 'init', 'custom_post_gallery' );
+
+}  /* End jcn_project_custom_init --*/  
+
