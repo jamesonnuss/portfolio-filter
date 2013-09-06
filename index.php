@@ -9,10 +9,11 @@ Author URI: http://www.jamesonnuss.com
 License: GPLV2
 */
 
-
+/* add_action function so that when WordPress begins to load our function will be called */
 add_action('init', 'jcn_project_custom_init');      
       
-/* START jcn_project_custom_init */  
+/* START jcn_project_custom_init */
+/* Adding the code that registers a Custom Post Type*/
 function jcn_project_custom_init()  
 {  
    $labels = array(
