@@ -102,7 +102,7 @@ function jcn_project_updated_messages( $messages ) {
 /* END jcn_project_updated_messages */  
 
 /*--- Adding a custom URL meta box for our Portfolio-Filter Plugin ---*/
-  
+
 /*--- Recieved Code from http://wp.tutsplus.com/tutorials/reusable-custom-meta-boxes-part-1-intro-and-basic-fields/
 	  and http://codex.wordpress.org/Function_Reference/add_meta_box ---*/
 /*--- Also recieved help from http://wp.tutsplus.com/ and class notes ---*/
@@ -111,7 +111,7 @@ add_action('admin_init','portfolio_meta_init');
 function portfolio_meta_init()  
 {  
     // add a meta box for WordPress 'project' type  
-    add_meta_box('portfolio_meta', 'Project Infos', 'portfolio_meta_setup', 'project', 'side', 'low');  
+    add_meta_box('portfolio_meta', 'Project Information', 'portfolio_meta_setup', 'project', 'side', 'low');  
    
     // add a callback function to save any data a user enters in  
     add_action('save_post','portfolio_meta_save');  
