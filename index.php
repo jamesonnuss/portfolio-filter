@@ -3,7 +3,7 @@
 Plugin URI: http://www.jamesonnuss.com
 Version: 1.0
 Description: Portfolio Filter is a versatile plugin designed to efficiently create a Portfolio Gallery. Portfolio Filter breaks apart your work into different categories, making it easier to navigate. Impress potential clients with a clean portfolio site that truly shows off your work in an organized fashion. Portfolio Filter can also be used to create a simple image gallery that contains multiple image categories. For those who are in need of a fast, light and useful plugin that makes your portfolio come to life. Try out the free plugin today and see how easy it is to create a functional, dynamic portfolio. 
-Plugin Name: Porfolio Filter
+Plugin Name: Portfolio Filter
 Author: Jameson Nuss
 Author URI: http://www.jamesonnuss.com
 License: GPLV2
@@ -17,7 +17,7 @@ add_action('init', 'jcn_project_custom_init');
 function jcn_project_custom_init()  
 {  
    $labels = array(
-		'name'               => _x( 'Portfolio Filter', 'post type general name' ),
+		'name'               => _x( 'Projects', 'post type general name' ),
 		'singular_name'      => _x( 'Project', 'post type singular name' ),
 		'add_new'            => _x( 'Add New', 'project' ),
 		'add_new_item'       => __( 'Add New Project' ),
@@ -92,12 +92,12 @@ function jcn_project_updated_messages( $messages ) {
     7 => __('Project saved.'),  
     8 => sprintf( __('Project submitted. <a target="_blank" href="%s">Preview project</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),  
     9 => sprintf( __('Project scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview project</a>'),  
-      // translators: Publish box date format, see http://php.net/date  
+    // translators: Publish box date format, see http://php.net/date  
       date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),  
     10 => sprintf( __('Project draft updated. <a target="_blank" href="%s">Preview project</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),  
   );  
   
   return $messages;  
-}  
-  
+}    
 /* END jcn_project_updated_messages */  
+
