@@ -165,3 +165,19 @@ function portfolio_meta_save($post_id)
 }  
   
 /*--- END custom URL meta box for our Portfolio-Filter Plugin ---*/  
+/*--- Begin Enqueque Stylesheet ---*/
+function jcn_project_enqueue_style() {
+    wp_enqueue_style(
+        'stylesheet', plugins_url( '/css/style.css' , __FILE__ ), array(),'1.54','all'
+    );
+} 
+add_action( 'wp_enqueue_scripts', 'jcn_project_enqueue_style' );
+/*--- END Enqueque Stylesheet ---*/
+/*--- Begin Enqueque Scripts ---*/
+function jcn_project_enqueue_filterable() 
+    {
+        wp_register_script( 'filterable', plugins_url( '/js/filterable.js' , __FILE__ ), array( 'jquery' ) );
+        wp_enqueue_script( 'filterable' );
+}
+add_action('wp_enqueue_scripts', 'jcn_project_enqueue_filterable');
+/*--- END Enqueque Scripts ---*/
