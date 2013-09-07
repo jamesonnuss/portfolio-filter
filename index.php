@@ -168,9 +168,9 @@ function portfolio_meta_save($post_id)
 /*--- Begin including template page for Portfolio-Filter---*/
 /*-- I recieved help from Brian Ferdinand with the Template Fallback --*/
 //Template fallback
-add_action("template_redirect", 'my_theme_redirect');
+add_action("template_redirect", 'jcn_my_theme_redirect');
 
-function my_theme_redirect() {
+function jcn_my_theme_redirect() {
     global $wp;
     $plugindir = dirname( __FILE__ );
 
@@ -186,6 +186,8 @@ function my_theme_redirect() {
         do_theme_redirect($return_template);
 
     //A Simple Page
+    /*-------------------------------------------------------------------*/
+    /* YOU MUST CHANGE THE NAME OF 'page-porfolio-3-column' TO THE PAGE YOU WANT TO DISPLAY*/
     } elseif ($wp->query_vars["pagename"] == 'page-portfolio-3-column') {
         $templatefilename = 'page_portfolio_2c.php';
         if (file_exists(TEMPLATEPATH . '/' . $templatefilename)) {
