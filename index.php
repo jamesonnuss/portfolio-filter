@@ -166,7 +166,7 @@ function portfolio_meta_save($post_id)
   
 /*--- END custom URL meta box for our Portfolio-Filter Plugin ---*/  
 /*--- Begin including template page for Portfolio-Filter---*/
-/*-- I recieved help from Brian Ferdinand with the Template Fallback --*/
+/*-- I recieved help from Brian Ferdinand with the Template Redirect --*/
 //Template fallback
 add_action("template_redirect", 'jcn_my_theme_redirect');
 
