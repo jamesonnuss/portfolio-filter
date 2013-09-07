@@ -1,0 +1,72 @@
+/* CLEARFIX 
+----------------------------------------------- */  
+  
+.clearboth {  
+    display: block;  
+    margin: 0;  
+    padding: 0;  
+    clear: both;  
+}  
+  
+/* PORTFOLIO FILTER STYLE 
+----------------------------------------------- */  
+  
+#portfolio-filter {  
+    list-style-type: none;  
+}  
+  
+#portfolio-filter li {  
+    display: inline;  
+    padding-right: 10px;  
+}  
+  
+#portfolio-filter li a {  
+    color: #777;  
+    text-decoration: none;  
+}  
+  
+#portfolio-filter li .current,  
+#portfolio-filter li:hover {  
+    color: #084a9a;  
+}  
+  
+/* PORTFOLIO LIST STYLE 
+----------------------------------------------- */  
+  
+#portfolio-wrapper {  
+    padding-bottom: 25px;  
+}  
+  
+#portfolio-list {  
+    list-style-type: none;  
+  
+}  
+  
+#portfolio-list .portfolio-item {  
+    width: 400px;  
+    float: left;  
+    margin-right: 5px;  
+}  
+  
+#portfolio-list .portfolio-item h3 a {  
+    color: #084a9a;  
+    text-transform: uppercase;  
+    font-weight: bold;  
+}  
+  
+#portfolio-list .portfolio-item .excerpt  
+{  
+    text-align: justify;  
+    font-size: 14px;  
+    line-height: 18px;  
+    padding-right: 15px;  
+    margin-bottom: 5px;  
+}  
+  
+#portfolio-list .portfolio-item .excerpt a {  
+    color: #555;  
+}  
+  
+#portfolio-list .portfolio-item .excerpt a:hover {  
+    text-decoration: none;  
+}
