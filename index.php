@@ -165,6 +165,48 @@ function portfolio_meta_save($post_id)
 }  
   
 /*--- END custom URL meta box for our Portfolio-Filter Plugin ---*/  
+/*--- Begin including template page for Portfolio-Filter---*/
+/*-- I recieved help from Brian Ferdinand with the Template Fallback --*/
+//Template fallback
+add_action("template_redirect", 'my_theme_redirect');
+
+function my_theme_redirect() {
+    global $wp;
+    $plugindir = dirname( __FILE__ );
+
+
+    //A Custom Taxonomy Page
+    if ($wp->query_vars["taxonomy"] == 'tagportfolio') {
+        $templatefilename = 'page_portfolio_2c.php';
+        if (file_exists(TEMPLATEPATH . '/' . $templatefilename)) {
+            $return_template = TEMPLATEPATH . '/' . $templatefilename;
+        } else {
+            $return_template = $plugindir . '/themefiles/' . $templatefilename;
+        }
+        do_theme_redirect($return_template);
+
+    //A Simple Page
+    } elseif ($wp->query_vars["pagename"] == 'page-portfolio-3-column') {
+        $templatefilename = 'page_portfolio_2c.php';
+        if (file_exists(TEMPLATEPATH . '/' . $templatefilename)) {
+            $return_template = TEMPLATEPATH . '/' . $templatefilename;
+        } else {
+            $return_template = $plugindir . '/themefiles/' . $templatefilename;
+        }
+        do_theme_redirect($return_template);
+    }
+}
+
+function do_theme_redirect($url) {
+    global $post, $wp_query;
+    if (have_posts()) {
+        include($url);
+        die();
+    } else {
+        $wp_query->is_404 = true;
+    }
+}
+/*--- END including template page for Portfolio-Filter---*/
 /*--- Begin Enqueque Stylesheet ---*/
 function jcn_project_enqueue_style() {
     wp_enqueue_style(
